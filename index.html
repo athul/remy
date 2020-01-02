@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="text-6xl">Get GitHub Release Analytics</h1>
+    <div id="app">
+        <div class="columns medium-3" v-for="result in results">
+            <div class="card">
+                <div class="card-divider" >
+                    Name of Asset: <strong>{{ result.assets[0].name }}</strong>
+                </div>
+                <div class="card-section">
+                    <p>Tag: {{ result.tag_name }}</p>
+                </div>
+                <div class="card-section">
+                    <p>{{ result.assets[0].download_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const url = "https://api.github.com/repos/athul/shelby/releases"
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                results: [],
+            },
+            mounted() {
+                axios.get(url).then(response => {
+                    this.results = response.data
+                })
+            },
+            /* computed:{
+                processedAssets(){
+                    let total=0
+                    res.map(ass=>{
+                        let assetObj=ass.assets
+                    })
+                }
+            } */
+        });
+        console.log(vm)
+        
+    </script>
+
+</body>
+
+
+</html>
