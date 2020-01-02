@@ -5,33 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
-    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Shelby Release Analytics</title>
 </head>
 
 <body>
-    <h1 class="text-6xl">Get GitHub Release Analytics</h1>
+    <center><p class="text-6xl">Get GitHub Release Analytics</p></center>
     <div id="app">
-        <div class="columns medium-3" v-for="result in results">
-            <div class="card">
-                <div class="card-divider" >
-                    Name of Asset: <strong>{{ result.assets[0].name }}</strong>
-                </div>
-                <div class="card-section">
-                    <p>Tag: {{ result.tag_name }}</p>
-                </div>
-                <div class="card-section">
-                    <p>{{ result.assets[0].download_count }}</p>
-                </div>
+        <center>
+        <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg">
+            <div class="px-6 py-6">
+                <div class="font-bold text-xl mb-2">Tag: {{ results.tag_name }}</div>
+                <p class="text-gray-700 text-base">
+                    Name of Asset: <strong>{{ results.assets[0].name }}</strong><br>
+                    <p class="font-black">Downloads: <u>{{ results.assets[0].download_count }}</u></p>
+                </p>
             </div>
         </div>
+        <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg">
+            <div class="px-6 py-6">
+                <div class="font-bold text-xl mb-2">Tag: {{ results.tag_name }}</div>
+                <p class="text-gray-700 text-base">
+                    Name of Asset: <strong>{{ results.assets[1].name }}</strong><br>
+                    <p class="font-black">Downloads:  <u> {{ results.assets[1].download_count }}</u></p>
+                </p>
+            </div>
+        </div>
+        <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg">
+            <div class="px-6 py-6">
+                <div class="font-bold text-xl mb-2">Tag: {{ results.tag_name }}</div>
+                <p class="text-gray-700 text-base">
+                    Name of Asset: <strong>{{ results.assets[2].name }}</strong><br>
+                    <p class="font-black">Downloads: <u>{{ results.assets[2].download_count }}</u></p>
+                </p>
+            </div>
+        </div>
+    </center>
     </div>
 
     </div>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        const url = "https://api.github.com/repos/athul/shelby/releases"
+        const url = "https://api.github.com/repos/athul/shelby/releases/latest"
 
         const vm = new Vue({
             el: '#app',
@@ -53,7 +69,7 @@
             } */
         });
         console.log(vm)
-        
+
     </script>
 
 </body>
