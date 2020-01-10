@@ -15,12 +15,12 @@
     </center>
     <div id="app">
         <center>
-                <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg" v-for="result in results" :result="result">
+                <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg" v-for="result in results">
                     <div class="px-6 py-6">
-                        <!-- <div class="font-bold text-xl mb-2">Tag: {{ result.name }}</div> -->
+                        <div class="font-bold text-xl mb-2">Tag: {{ result.name }}</div>
                         <p class="text-gray-700 text-base">
-                            Name of Asset: <strong>{{ results.assets.name }}</strong><br>
-                            <p class="font-black">Downloads: <u>{{ results.assets.download_count }}</u></p>
+                            Name of Asset: <strong>{{ result.assets.name }}</strong><br>
+                            <p class="font-black">Downloads: <u>{{ result.assets.download_count }}</u></p>
                         </p>
                     </div>
                 </div>
