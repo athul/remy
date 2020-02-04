@@ -7,6 +7,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #main {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .card {
+            padding: 12px;
+            margin: 24px 0;
+            box-shadow: 2px 1px 9px -2px rgba(0,0,0,.2);
+        }
+
+        .assets {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .asset {
+            flex-basis: 50%;
+            flex-grow: 0;
+            margin: 2px;
+            box-shadow: 2px 1px 9px -4px rgba(0,0,0,.2);
+        }
+    </style>
 </head>
 
 <body>
@@ -14,40 +42,25 @@
         <p class="text-6xl">Get GitHub Release Analytics</p>
     </center>
     <div id="app">
+    <div class="search">
+        <input
+          type="search"
+          name="song"
+          class="search-song"
+          autofocus="autofocus"
+          placeholder="author/repo[Eg: athul/shelby]"
+          id="search-input"
+        />
+      </div>
         <center>
-                <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg" v-for="result in results">
-                    <div class="px-6 py-6">
-                        <div class="font-bold text-xl mb-2">Tag: {{ result.name }}</div>
-                        <p class="text-gray-700 text-base">
-                            Name of Asset: <strong>{{ result.assets.name }}</strong><br>
-                            <p class="font-black">Downloads: <u>{{ result.assets.download_count }}</u></p>
-                        </p>
-                    </div>
+                <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg" id="main">
+                    
                 </div>
-                <!-- <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg" v-for="result in results">
-                    <div class="px-6 py-6">
-                        <div class="font-bold text-xl mb-2">Tag: {{ result.tag_name }}</div>
-                        <p class="text-gray-700 text-base">
-                            Name of Asset: <strong>{{ prc.name }}</strong><br>
-                            <p class="font-black">Downloads: <u> {{ prc.download }}</u></p>
-                        </p>
-                    </div>
-                </div>
-                <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg" v-for="result in results">
-                    <div class="px-6 py-6">
-                        <div class="font-bold text-xl mb-2">Tag: {{ result.tag_name }}</div>
-                        <p class="text-gray-700 text-base">
-                            Name of Asset: <strong>{{ prc.name }}</strong><br>
-                            <p class="font-black">Downloads: <u>{{ prc.download }}</u></p>
-                        </p>
-                    </div>
-                </div> -->
             </div>
         </center>
     </div>
 
     </div>
-    <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
 
