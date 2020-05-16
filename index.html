@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">   
+    <title>Get GitHub Analytics</title>
     <style>
         * {
             margin: 0;
@@ -38,29 +38,28 @@
 </head>
 
 <body>
-    <center>
-        <p class="text-6xl">Get GitHub Release Analytics</p>
-    </center>
-    <div id="app">
-    <div class="search">
+    <div class='container has-text-centered'>
+        <div class='content'>
+        <h2 class="title">Get GitHub Release Analytics</h2>
+        </div>
+    </div>
+    <div class='content'>
+        <div class='field'> 
         <input
-          type="search"
-          name="song"
-          class="search-song"
+            class="input is-primary"
           autofocus="autofocus"
-          placeholder="author/repo[Eg: athul/shelby]"
+          autocomplete="off"
+          placeholder="author/repository [athul/shelby]"
           id="search-input"
         />
+        <input type="submit" class="button is-primary" value="Submit" onclick="getAnalytics()">
       </div>
         <center>
                 <div class="max-w-xs max-h-screen rounded overflow-hidden shadow-lg" id="main">
                     
                 </div>
-            </div>
+            
         </center>
-    </div>
-
-    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
 
