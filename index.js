@@ -1,8 +1,9 @@
 function getAnalytics() {
     let repVal = document.getElementById("search-input");
     let term = repVal.value;
+    let URL = `https://api.github.com/repos/${term.replace(/\s+/g, '')}/releases`
     console.log(term.replace(/\s+/g, ''))
-    axios.get(`https://api.github.com/repos/${term.replace(/\s+/g, '')}/releases`)
+    axios.get(URL)
         .then(response => {
             return response.data;
         }).catch(error => {
@@ -22,17 +23,22 @@ function getAnalytics() {
                     return (
                         `<div class='card asset'>
                             Name of Asset: <strong>${asset.name}</strong><br>
-                            <p class="font-black">Downloads: ${asset.download_count}</p>
+                            <p class="has-text-danger">Downloads: ${asset.download_count}</p>
                         </div>`
                     )
                 })
                 htmlString.push(
-                    `<div class="px-6 py-6 card">
-                                <div class="font-bold text-xl mb-2"><u>Tag: ${item.name}</u></div>
+                    `<div>
+                                <div><u>Tag: ${item.name}</u></div>
                                 <div class='assets'>
                                     ${assets.join('')}
                                 </div>
-                            </div>`
+                            </div>
+                            <footer>
+            <div class="content has-text-centered">
+            <p class="text is-success">Made with <3 by <a href="https://github.com/athul">athul</a></p>
+            </div>
+        </footer>`
                 )
             })
             document.querySelector("#main").innerHTML = htmlString.join('');
