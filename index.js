@@ -29,15 +29,11 @@ function getAnalytics() {
                 })
                 htmlString.push(
                     `<div>
-                                <div><u>Tag: ${item.name}</u></div>
+                                <div><strong><u>Tag: ${item.name}</u></strong/></div>
                                 <div class='assets'>
                                     ${assets.join('')}
                                 </div>
                             </div>
-                            <footer>
-            <div class="content has-text-centered">
-            <p class="text is-success">Made with <3 by <a href="https://github.com/athul">athul</a></p>
-            </div>
         </footer>`
                 )
             })
