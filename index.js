@@ -2,12 +2,10 @@ function getAnalytics() {
     let repVal = document.getElementById("search-input");
     let term = repVal.value;
     let URL = `https://api.github.com/repos/${term.replace(/\s+/g, '')}/releases`
-    console.log(term.replace(/\s+/g, ''))
     axios.get(URL)
         .then(response => {
             return response.data;
         }).catch(error => {
-            console.log(error);
         }).then(data => {
             const asset_downloads = data.map(release => {
                 return {
