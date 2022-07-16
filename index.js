@@ -1,7 +1,8 @@
 function getAnalytics() {
-    let repVal = document.getElementById("search-input");
-    let term = repVal.value;
-    let URL = `https://api.github.com/repos/${term.replace(/\s+/g, '')}/releases`
+    const repVal = document.getElementById("search-input");
+    const term = repVal.value;
+    const URL = `https://api.github.com/repos/${term.replace(/\s+/g, '')}/releases`
+
     axios.get(URL)
         .then(response => {
             return response.data;
@@ -14,9 +15,9 @@ function getAnalytics() {
                 }
             });
 
-            let htmlString = [];
+            const htmlString = [];
             asset_downloads.forEach(item => {
-                let assets = item.assets.map(asset => {
+                const assets = item.assets.map(asset => {
                     return (
                         `<div class='card asset'>
                             Name of Asset: <strong>${asset.name}</strong><br>
