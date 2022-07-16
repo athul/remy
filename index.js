@@ -13,7 +13,6 @@ function getAnalytics() {
                     assets: release.assets.map(({ name, download_count }) => ({ name, download_count }))
                 }
             });
-            this.results = asset_downloads;
 
             let htmlString = [];
             asset_downloads.forEach(item => {
