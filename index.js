@@ -25,13 +25,12 @@ function getAnalytics() {
                     )
                 })
                 htmlString.push(
-                    `<div>
-                                <div><strong><u>Tag: ${item.name}</u></strong/></div>
-                                <div class='assets'>
-                                    ${assets.join('')}
-                                </div>
+                        `<div>
+                            <div><strong><u>Tag: ${item.name}</u></strong/></div>
+                            <div class='assets'>
+                                ${assets.join('')}
                             </div>
-        </footer>`
+                        </div>`
                 )
             })
             document.querySelector("#main").innerHTML = htmlString.join('');
